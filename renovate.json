@@ -1,0 +1,43 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "draftPR": false,
+    "lockFileMaintenance": {
+        "automerge": true
+    },
+    "packageRules": [
+        {
+            "matchUpdateTypes": ["minor", "patch"],
+            "automerge": true
+        },
+        {
+            "matchDepTypes": ["devDependencies"],
+            "automerge": true
+        },
+        {
+            "matchPackagePatterns": [
+              "/.*redis.*/i",
+              "/.*elasticsearch.*/i",
+              "/.*trino.*/i",
+              "/.*postgres.*/i",
+              "/.*helm.*/i",
+              "/.*kraken.*/i",
+              "/.*mysql.*/i",
+              "/.*rabbitmq.*/i"
+            ],
+            "enabled": false
+        },
+        {
+          "matchDatasources": [
+            "pypi"
+          ],
+          "matchPackageNames": [
+            "dagster",
+            "dagit"
+          ],
+          "matchPackagePatterns": [
+            "dagster"
+          ],
+          "groupName": "Dagster dependencies"
+        }
+    ]
+}
